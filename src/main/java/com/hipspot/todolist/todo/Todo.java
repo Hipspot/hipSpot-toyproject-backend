@@ -13,9 +13,9 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String content;
-
     private String title;
+
+    private String content;
 
     private Boolean isComplete;
 
@@ -31,5 +31,9 @@ public class Todo {
         this.content = content;
         this.tag = tag;
         this.isComplete = Boolean.FALSE;
+    }
+
+    public enum TagEnum {
+        all, pm, design, fe, be, mobile
     }
 }

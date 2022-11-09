@@ -3,6 +3,7 @@ package com.hipspot.todolist.todo;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -22,6 +23,8 @@ public class Todo {
     @Enumerated(EnumType.STRING)
     private TagEnum tag;
 
+    private LocalDate modifiedDate;
+
     public Todo() {
 
     }
@@ -31,6 +34,7 @@ public class Todo {
         this.content = content;
         this.tag = tag;
         this.isComplete = Boolean.FALSE;
+        this.modifiedDate = LocalDate.now();
     }
 
     public enum TagEnum {

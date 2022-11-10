@@ -38,6 +38,6 @@ public class Todo {
     }
 
     public enum TagEnum {
-        all, pm, design, fe, be, mobile
+        global, pm, design, fe, be, mobile
     }
 }

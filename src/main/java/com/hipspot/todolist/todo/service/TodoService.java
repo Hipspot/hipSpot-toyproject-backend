@@ -12,9 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -33,8 +30,7 @@ public class TodoService {
             todoList = this.todoRepository.findAll();
 
         //태그 검사
-        if(request.getTags() != null && !request.getTags().contains(Todo.TagEnum.all))
-            todoList =  todoList.stream().filter(todo -> request.getTags().contains(todo.getTag())).toList();
+        todoList =  todoList.stream().filter(todo -> request.getTags().contains(todo.getTag())).toList();
 
         return TodoListResponse.from(todoList.stream().map(TodoDto::from).toList());
     }
